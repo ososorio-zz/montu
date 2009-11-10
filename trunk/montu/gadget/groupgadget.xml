@@ -25,7 +25,7 @@
        Hello, Oscar wellcome your first wave
        
 
-       <input type="submit" value="oscar" onclick="buttonfunction();" />
+       <input type="submit" value="oscar" onclick="buttonfucntion();" />
 
        
        
