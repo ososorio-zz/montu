@@ -9,21 +9,13 @@
     
     <script type="text/javascript">
 
-    var msg = new gadgets.MiniMessage(__MODULE_ID__, document.getElementById("messageBox"));
-msg.createDismissibleMessage("The score is now: " + score);
-    
-    
-    function logThis(obj) {
-   if (window.console && console.log) {
-     console.log(obj);
-   } else {
-     msg.createDismissibleMessage(obj.toString());
-   }
-}
-    
+ 
     
     function buttonfucntion()
     {
+    
+    wave.log("The count is " + wave.getState().get('count'));
+    console.log("1111"+wave.getState());
     alert("dio click");
     
     }
