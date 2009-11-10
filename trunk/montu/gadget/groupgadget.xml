@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Hello Wave">
+    <Require feature="wave" /> 
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[     
+    
+    <script type="text/javascript">
+    var participants = wave.getParticipants();
+    var numPeople = participants.length;
+
+    
+    
+    
+    function buttonfucntion()
+    {
+    alert(wave.getState());
+    alert(participants);
+    alert(numPeople);
+    }
+    
+    </script>
+    
+       Hello, Oscar wellcome your first wave
+       
+       <div id="helo" style="height: 50px;">
+       <input type="submit" value="oscar" onclick="buttonfunction();" />
+       </div>
+    ]]>
+  </Content>
+</Module>
