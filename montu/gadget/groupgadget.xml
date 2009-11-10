@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs title="Hello Wave">
-    <Require feature="wave" /> 
+    <Require feature="wave" />
+    <Require feature="minimessage"/> 
   </ModulePrefs>
   <Content type="html">
     <![CDATA[     
     
     <script type="text/javascript">
-    var participants = wave.getParticipants();
-    var numPeople = participants.length;
 
+    var msg = new gadgets.MiniMessage(__MODULE_ID__, document.getElementById("messageBox"));
+msg.createDismissibleMessage("The score is now: " + score);
     
+    
+    function logThis(obj) {
+   if (window.console && console.log) {
+     console.log(obj);
+   } else {
+     msg.createDismissibleMessage(obj.toString());
+   }
+}
     
     
     function buttonfucntion()
     {
-    alert(wave.getState());
-    alert(participants);
-    alert(numPeople);
+    alert("dio click");
+    
     }
     
     </script>
     
        Hello, Oscar wellcome your first wave
        
-       <div id="helo" style="height: 50px;">
+
        <input type="submit" value="oscar" onclick="buttonfunction();" />
-       </div>
+
+       
+       
+       <div id="messageBox"></div>
     ]]>
   </Content>
 </Module>
