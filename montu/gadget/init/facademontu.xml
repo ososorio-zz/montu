@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Login Montu">
+  <ModulePrefs title="Hello Wave">
     <Require feature="wave" />
+    <Require feature="minimessage"/> 
   </ModulePrefs>
- <Content type="html" view="home">
-    <![CDATA[
-   
+  <Content type="html">
+    <![CDATA[     
+    
+    <script type="text/javascript">
 
-<h1>home ,Profile</h1>
-
-	
-
-	
-    ]]>  
- </Content>
  
- 
- </Module> 
-  
+    
+    function buttonfucntion()
+    {
+    
+    wave.log("The count is " + wave.getState().get('count'));
+
+    alert("dio click");
+    
+    }
+    
+    </script>
+    
+       Hello, Oscar wellcome your first wave
+       
+
+       <input type="submit" value="oscar" onclick="buttonfucntion();" />
+
+       
+       
+       <div id="messageBox"></div>
+    ]]>
+  </Content>
+</Module>
   
   
