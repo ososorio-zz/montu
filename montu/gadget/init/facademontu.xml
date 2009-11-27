@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Login Montu" author="Oscar Osorio"  author_email="oscarosorio88@google.com" >
+  <ModulePrefs title="Login Montu">
     <Require feature="wave" />
     <Require feature="views" />
 
