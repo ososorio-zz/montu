@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Login Montu" author="Oscar Osorio"  author_email="oscarosorio88@google.com" >
+    <Require feature="wave" />
+    <Require feature="views" />
+
+  </ModulePrefs>
+ <Content type="html" view="home,login">
+    <![CDATA[
+    <script type="text/javascript">
+	function getSupportedViews()
+	{
+	return gadgets.views.getSupportedViews();
+	}
+	
+	function getViewName() 
+	{
+	return gadgets.views.getCurrentView().getName();
+	}
+
+	function changeTitle(newTitle) {
+      if(newTitle)
+      gadgets.window.setTitle(newTitle);	 
+    }
+	
+	function getwaveState()
+	{
+	return wave.getState();
+	}
+	
+	function logTest()
+	{
+	wave.log("The count is " + wave.getState().get('count'));
+
+	}
+	function logTest1()
+	{
+	log("log 2");
+	}
+	
+	function log3()
+	{
+	
+	console.log("The score is now: " + score);
+
+	}
+	function firebug()
+	{
+		console.info("firebug already");
+	}
+	
+	
+	</script>
+
+<h1>home ,Profile</h1>
+
+	ubicacion table 1 and 2
+	  <a href="javascript:alert(getViewName() );" >Go name view</a><br><br>
+	  <a href="javascript:alert(getSupportedViews() );" >get support view's</a><br><br>
+	<INPUT TYPE="button" NAME="button" Value="Change Title" onClick="changeTitle('change title')">
+	<INPUT TYPE="button" NAME="button" Value="Wave state" onClick="alert(getwaveState());">
+	<INPUT TYPE="button" NAME="button" Value="log1" onClick="logTest();">
+	<INPUT TYPE="button" NAME="button" Value="log2" onClick="logTest1();">
+		<INPUT TYPE="button" NAME="button" Value="log3" onClick="log3();">
+
+	<INPUT TYPE="button" NAME="button" Value="fire" onClick="firebug();">
+
+	
+    ]]>  
+ </Content>
+ 
+ 
+ </Module> 
+  
+  
+  
