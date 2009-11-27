@@ -2,10 +2,8 @@
 <Module>
   <ModulePrefs title="Login Montu">
     <Require feature="wave" />
-    <Require feature="views" />
-
   </ModulePrefs>
- <Content type="html" view="home,login">
+ <Content type="html" view="home">
     <![CDATA[
    
 
