@@ -56,16 +56,26 @@
     
     wave.log("The count is " + wave.getState().get('count'));
 
-    alert("dio click");
+    alert("test on");
     
     }
     
     </script>
     
-       Hello, Oscar wellcome your first wave
        
 
-       <input type="submit" value="oscar" onclick="buttonfucntion();" />
+       <input type="submit" value="test1" onclick="buttonfucntion();" />
+
+	   
+	   
+	          <input type="submit" value="test1" onclick="alert(getViewName() );" />
+       <input type="submit" value="test1" onclick="alert(getSupportedViews() );" />
+       <input type="submit" value="test1" onclick="changeTitle('change title');" />
+       <input type="submit" value="test1" onclick="logTest();" />
+
+			         <input type="submit" value="test1" onclick="logTest1();" />
+              <input type="submit" value="test1" onclick="logTest3();" />
+       <input type="submit" value="test1" onclick="firebug();" />
 
        
        
