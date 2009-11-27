@@ -74,7 +74,7 @@
        <input type="submit" value="test1" onclick="logTest();" />
 
 			         <input type="submit" value="test1" onclick="logTest1();" />
-              <input type="submit" value="test1" onclick="logTest3();" />
+              <input type="submit" value="test1" onclick="log3();" />
        <input type="submit" value="test1" onclick="firebug();" />
 
        
