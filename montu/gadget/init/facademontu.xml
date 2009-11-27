@@ -7,50 +7,7 @@
   </ModulePrefs>
  <Content type="html" view="home,login">
     <![CDATA[
-    <script type="text/javascript">
-	function getSupportedViews()
-	{
-	return gadgets.views.getSupportedViews();
-	}
-	
-	function getViewName() 
-	{
-	return gadgets.views.getCurrentView().getName();
-	}
-
-	function changeTitle(newTitle) {
-      if(newTitle)
-      gadgets.window.setTitle(newTitle);	 
-    }
-	
-	function getwaveState()
-	{
-	return wave.getState();
-	}
-	
-	function logTest()
-	{
-	wave.log("The count is " + wave.getState().get('count'));
-
-	}
-	function logTest1()
-	{
-	log("log 2");
-	}
-	
-	function log3()
-	{
-	
-	console.log("The score is now: " + score);
-
-	}
-	function firebug()
-	{
-		console.info("firebug already");
-	}
-	
-	
-	</script>
+   
 
 <h1>home ,Profile</h1>
 
