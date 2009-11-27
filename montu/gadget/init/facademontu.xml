@@ -54,16 +54,7 @@
 
 <h1>home ,Profile</h1>
 
-	ubicacion table 1 and 2
-	  <a href="javascript:alert(getViewName() );" >Go name view</a><br><br>
-	  <a href="javascript:alert(getSupportedViews() );" >get support view's</a><br><br>
-	<INPUT TYPE="button" NAME="button" Value="Change Title" onClick="changeTitle('change title')">
-	<INPUT TYPE="button" NAME="button" Value="Wave state" onClick="alert(getwaveState());">
-	<INPUT TYPE="button" NAME="button" Value="log1" onClick="logTest();">
-	<INPUT TYPE="button" NAME="button" Value="log2" onClick="logTest1();">
-		<INPUT TYPE="button" NAME="button" Value="log3" onClick="log3();">
-
-	<INPUT TYPE="button" NAME="button" Value="fire" onClick="firebug();">
+	
 
 	
     ]]>  
