@@ -1,85 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Hello Wave">
+  <ModulePrefs title="Main montu">
     <Require feature="wave" />
     <Require feature="minimessage"/> 
+	  <Require feature="views" />
+
   </ModulePrefs>
-  <Content type="html">
+  <Content type="html" view="home,main">
     <![CDATA[     
-    
-    <script type="text/javascript">
-
- 	function getSupportedViews()
-	{
-	return gadgets.views.getSupportedViews();
-	}
+    <link rel="stylesheet" href="css/login.css" type="text/css" />
+    <javascrit type="text/javascript" src="js/login.js" ></javascript>
 	
-	function getViewName() 
-	{
-	return gadgets.views.getCurrentView().getName();
-	}
-
-	function changeTitle(newTitle) {
-      if(newTitle)
-      gadgets.window.setTitle(newTitle);	 
-    }
+	<table id="table_main" class="blue_bacground">
+	<!-- Linea -->
+	<tr id="head">
+	<p>Montu proyect beta login google only</p>
+	</tr>
+	<tr  id="content">
 	
-	function getwaveState()
-	{
-	return wave.getState();
-	}
+		<tr>
+				<td align="center" colspan="2">
+				<img alt="Google" src="img/google_transparent.gif"/>
+				</td>
+		</tr>
+		
+		<tr>
+		<div align="right"><span class="">Username:</span></div>
+		<input type="text" class="" value="" size="18" id="Email" name="Email"/>
+		</tr>
 	
-	function logTest()
-	{
-	wave.log("The count is " + wave.getState().get('count'));
-
-	}
-	function logTest1()
-	{
-	log("log 2");
-	}
 	
-	function log3()
-	{
 	
-	console.log("The score is now: " + score);
-
-	}
-	function firebug()
-	{
-		console.info("firebug already");
-	}
+	</tr>
+	<tr  id="foot"></tr>
 	
-    
-    function buttonfucntion()
-    {
-    
-    wave.log("The count is " + wave.getState().get('count'));
-
-    alert("test on");
-    
-    }
-    
-    </script>
-    
-       
-
-       <input type="submit" value="test1" onclick="buttonfucntion();" />
-
-	   
-	   
-	          <input type="submit" value="test1" onclick="alert(getViewName() );" />
-       <input type="submit" value="test1" onclick="alert(getSupportedViews() );" />
-       <input type="submit" value="test1" onclick="changeTitle('change title');" />
-       <input type="submit" value="test1" onclick="logTest();" />
-
-			         <input type="submit" value="test1" onclick="logTest1();" />
-              <input type="submit" value="test1" onclick="log3();" />
-       <input type="submit" value="test1" onclick="firebug();" />
-
-       
-       
-       <div id="messageBox"></div>
+	</table>
+	
     ]]>
   </Content>
 </Module>
