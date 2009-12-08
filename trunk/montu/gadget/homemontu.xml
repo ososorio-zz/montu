@@ -15,25 +15,15 @@
 	<!-- Linea -->
 	<tr id="head">
 	<p>Montu proyect beta login google only</p>
+	<img alt="Google" src="img/google_transparent.gif"/>
 	</tr>
 	<tr  id="content">
-	
-		<tr>
-				<td align="center" colspan="2">
-				<img alt="Google" src="img/google_transparent.gif"/>
-				</td>
-		</tr>
+	contenido
 		
-		<tr>
-		<div align="right"><span class="">Username:</span></div>
-		<input type="text" class="" value="" size="18" id="Email" name="Email"/>
-		</tr>
-	
-	
 	
 	</tr>
 	<tr  id="foot"></tr>
-	
+	final
 	</table>
 	
     ]]>
