@@ -8,14 +8,14 @@
   </ModulePrefs>
   <Content type="html" view="home,main">
     <![CDATA[     
-    <link rel="stylesheet" href="css/login.css" type="text/css" />
-    <javascrit type="text/javascript" src="js/login.js" ></javascript>
+    <link rel="stylesheet" href="http://montu.googlecode.com/svn/trunk/montu/gadget/css/login.css" type="text/css" />
+    <javascrit type="text/javascript" src="http://montu.googlecode.com/svn/trunk/montu/gadget/js/login.js" ></javascript>
 	
 	<table id="table_main" class="blue_bacground">
 	<!-- Linea -->
 	<tr id="head">
 	<p>Montu proyect beta login google only</p>
-	<img alt="Google" src="img/google_transparent.gif"/>
+	<img alt="Google" src="http://montu.googlecode.com/svn/trunk/montu/gadget/img/google_transparent.gif"/>
 	</tr>
 	<tr  id="content">
 	contenido
