@@ -6,8 +6,13 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[     
-    
-	<table id="table_main" class="blue_bacground">
+     <script type="text/javascript" src="http://wave-api.appspot.com/public/wave.js"></script>
+     <link rel="stylesheet" href="http://montu.googlecode.com/svn/trunk/montu/gadget/css/login.css" type="text/css" media="screen"/>
+    <style type="text/css">
+    .div1{border:2px solid ;}
+    </style>
+    <div>
+	<table id="table_main" class="blue_bacground" >
 	<!-- Linea -->
 	<tr id="head">
 	<p>Montu proyect beta login google only</p>
@@ -20,7 +25,7 @@
 	<tr  id="foot"></tr>
 	final
 	</table>
-	
+	</div>
     ]]>
   </Content>
 </Module>
