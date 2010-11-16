@@ -23,7 +23,7 @@ import java.util.Map.Entry;
 
 public class Game implements Cloneable {
 
-	public Game(String mapInfo, int i, int initMode, String logFile) {
+	public Game(String mapInfo, int maxGameLength, int initMode, String logFile) {
 		logFilename = logFile;
 		planets = new ArrayList<Planet>();
 		fleets = new ArrayList<Fleet>();
@@ -38,7 +38,7 @@ public class Game implements Cloneable {
 			mapData = mapInfo;
 			break;
 		}
-		maxGameLength = i;
+		this.maxGameLength = maxGameLength;
 		numTurns = 0;
 	}
 
@@ -88,6 +88,10 @@ public class Game implements Cloneable {
 
 	public Fleet GetFleet(int i) {
 		return (Fleet) fleets.get(i);
+	}
+
+	public List<Fleet> GetFleets() {
+		return fleets;
 	}
 
 	public String toString() {

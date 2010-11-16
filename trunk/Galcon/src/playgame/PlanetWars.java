@@ -49,8 +49,13 @@ public class PlanetWars {
 	// with 0. There are NumFleets() fleets. fleet_id's are not consistent from
 	// one turn to the next.
 	public Fleet GetFleet(int fleetID) {
-			return game.GetFleet(fleetID);
+		return game.GetFleet(fleetID);
 	}
+	
+	public List<Fleet> Fleets() {
+		return game.GetFleets();
+	}
+	
 	
 	public List<Fleet> GetEnemyFleet()
 	{
