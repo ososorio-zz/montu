@@ -133,25 +133,70 @@ public class ConquerOptimizer {
 		}
 		
 		//Distribute ships wisely among the planets		
-		int totalCost = 0;
-		float divisor = 0;
-		for(Planet p:bestComb)
-		{
-			totalCost += p.NumShips() + 1;
-			divisor += p.getRelativeDist();
-		}
-		int saldo = myPlanet.NumShips() - totalCost;
+		
+//		calculateScore(myPlanet);
+//		int totalCost = 0;
+//		float divisor = 0;
+//		for(Planet p:bestComb)
+//		{
+//			totalCost += p.NumShips() + 1;
+//			divisor += p.getRelativeDist();
+//		}
+//		int saldo = myPlanet.NumShips() - totalCost;
+//
+//		divisor += saldo*risk;
+//		for(Planet p:bestComb)
+//		{
+//			float weight = p.getRelativeDist()/divisor;
+//			int send = Math.round(p.NumShips()+ 1 + saldo * weight);
+//			System.out.println("Sending "+ send + " to "+p.PlanetID() );
+//			war.IssueOrder(this.myPlanet, p, send);
+//		}
+	}
 
-		divisor += saldo*risk;
-		for(Planet p:bestComb)
+	/**
+	 * Calculate the relative score of each of my planets (or enemy planets). 
+	 * If score is negative, means under-protected
+	 * If score is positive, means over-protected
+	 * 
+	 * If all the planets have the same score, is balanced.
+	 * If the balanced score is negative -> loosing!
+	 * If the balanced score is positive -> winning!
+	 * 
+	 * Sp = Np + Gp*K
+	 * e = enemy
+	 * m = myself
+	 * Score(s) = Ss*sum(1/d(s,m)^2) - sum[ Se / d(s,m)^2] + sum[ Sm/ d(m,s)^2 ]
+	 * 
+	 * @param myPlanet s
+	 * @return
+	 */
+	private double calculateScore(Planet myPlanet) {
+		float G_WEIGHT = 3;
+		float extern = 0;
+		float sumDist = 0;
+		for(Planet p : war.Planets())
 		{
-			float weight = p.getRelativeDist()/divisor;
-			int send = Math.round(p.NumShips()+ 1 + saldo * weight);
-			System.out.println("Sending "+ send + " to "+p.PlanetID() );
-			war.IssueOrder(this.myPlanet, p, send);
+			if(p.PlanetID() != myPlanet.PlanetID() && p.Owner() != 0)
+			{
+				int dist = war.Distance(p, myPlanet);
+				float distPow2 = dist * dist;
+				sumDist += 1f/distPow2;
+				double score = (p.GrowthRate()*G_WEIGHT + p.NumShips()) / distPow2;
+				extern += (p.Owner() == myPlanet.Owner())? score : -score;
+			}
 		}
 		
-		
+		for(Fleet f : war.Fleets())
+		{
+			if(f.DestinationPlanet() == myPlanet.PlanetID())
+			{
+				int dist = f.TurnsRemaining();
+				double score = f.NumShips() / (dist*dist);
+				extern += (f.Owner() == myPlanet.Owner())? score : -score;
+			}
+		}
+		return (myPlanet.NumShips() + myPlanet.GrowthRate()*G_WEIGHT)* sumDist + extern;
 	}
 
 }
