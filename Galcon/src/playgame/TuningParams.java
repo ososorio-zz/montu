@@ -7,5 +7,5 @@ public class TuningParams {
 	 * conquer strategy in the first step. The bigger, the risker. < 0.5 can be
 	 * considered safe. Use aural division to set the frontier
 	 */
-	public static final double FRONTIER = 0.61803398878024300;
+	public static final double FRONTIER = 0.5;
 }

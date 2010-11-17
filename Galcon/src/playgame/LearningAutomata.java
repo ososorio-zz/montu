@@ -49,6 +49,8 @@ public class LearningAutomata
 	private double rewardCmpl;
 	private double penaltyCmpl;
 	private double penaltyGap;
+	private double rewardGap;
+	private double penalty;
 
 	/**
 	 * Constructor
@@ -61,12 +63,106 @@ public class LearningAutomata
 		this.reward = reward;
 		this.action = actions;
 		this.rewardCmpl = 1 - reward;
+		this.penalty = penalty;
 		this.penaltyCmpl = 1 - penalty;
 		this.penaltyGap = penalty * sum / (action.length - 1);
+		this.rewardGap = reward * sum / (action.length - 1);
 		for (int i = 0; i < actions.length; i++) 
 			sum += actions[i];
 	}
+	
+	/**
+	 * Reward an action
+	 */
+	public void reinforce(int curAction, double env)
+	{
+		int rest = sum;
+		double envCompl = 1 - env;
+		for (int i = 0; i < action.length; i++)
+		{
+			if (i != curAction)
+			{
+				action[i] += (int) Math.round(
+						env * (rewardGap - reward * action[i]) - action[i] * reward * envCompl);
+			}
+			else
+			{
+				double change =  reward * (sum - action[i]) * envCompl - reward * action[i] * env;
+				int intChange = (int) Math.round(change);
+				//Force a minimal change of 1 
+				if(intChange == 0)
+				{
+					intChange = (env < 0.5D ? 1 : -1);
+				}
+				action[i] += intChange;
+			}
+			rest -= action[i];
+		}
+		if(env <= 0.5D)
+		{
+			action[curAction] += rest;
+		}
+		else
+		{
+			while(rest > 0)
+			{
+				for (int i = 0; i < action.length && rest > 0; i++)
+				{
+					if (i != curAction)
+					{
+						action[i] ++;
+						rest--;
+					}
+				}
+			}
+		}
+	}
 
+	/**
+	 * Reward an action with environment score
+	 */
+	public void reward(int curAction, double env)
+	{
+		int rest = sum;
+		for (int i = 0; i < action.length; i++)
+		{
+			if (i != curAction)
+				action[i] = (int) Math.round(action[i] * (1 - reward * env));
+			else
+				action[i] = (int) Math.round(action[i] + env * reward * (sum - action[i]));
+			rest -= action[i];
+		}
+		action[curAction] += rest;
+	}
+
+	/**
+	 * Penalize an action
+	 */
+	public void penalize(int curAction, double env)
+	{
+		int rest = sum;
+		for (int i = 0; i < action.length; i++)
+		{
+			if (i != curAction)
+				action[i] = (int) Math.round( (1 - env * penalty) * action[i] + penaltyGap);
+			else
+				action[i] = (int) Math.max(1,Math.floor( (1 - env * penalty) * action[i]));
+			rest -= action[i];
+		}
+		while(rest > 0)
+		{
+			for (int i = 0; i < action.length && rest > 0; i++)
+			{
+				if (i != curAction)
+				{
+					action[i] ++;
+					rest--;
+				}
+			}
+		}
+	}
+	
+	
 	/**
 	 * Reward an action
 	 */
